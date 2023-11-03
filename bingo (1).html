@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seabass BINGO</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        table, th, td {
+            border: 2px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            background-color: ghostwhite;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Define a CSS class for clicked cells */
+        .clicked {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Sprouts Hire Me</p>
+
+    <table>
+        <caption>Seabass BINGO</caption>
+        <tbody id="bingo-board"></tbody>
+    </table>
+
+    <script>
+        const bingoWords = [
+            "Cleaning all his phones",
+            "Fold",
+            "Super Mario Bros Wonder",
+            "Praising Apple Products",
+            "Blaming Garrett",
+            "Cars + Bids",
+            "Dashcam Footage",
+            "Sampling Event",
+            "A _ A Day",
+            "Drifting to the lab",
+            "Laughs from across the office",
+            "Fully Borked",
+            "Just Loud",
+            "Jack Sinclair related",
+            "Crab Rave",
+            "Bruthuh OkTA",
+            "What we gettin for lunch?",
+            "ZuCc",
+            "Garrett The Carrot",
+            "Screwdriver Noises",
+            "House",
+            "Musk-Teslas",
+            "I Don't wanna do that",
+            "Echo's something someone said",
+            "Quest3"
+        ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function generateBingoBoard(words) {
+            const boardSize = 5;
+            const bingoBoard = [];
+            shuffleArray(words);
+
+            for (let i = 0; i < boardSize; i++) {
+                const row = [];
+                for (let j = 0; j < boardSize; j++) {
+                    row.push(words[i * boardSize + j]);
+                }
+                bingoBoard.push(row);
+            }
+
+            return bingoBoard;
+        }
+
+        const bingoBoard = generateBingoBoard(bingoWords);
+
+        const boardTable = document.getElementById("bingo-board");
+
+        // Function to toggle cell background color
+        function toggleCellColor(cell) {
+            if (cell.classList.contains("clicked")) {
+                cell.classList.remove("clicked");
+            } else {
+                cell.classList.add("clicked");
+            }
+        }
+
+        bingoBoard.forEach(row => {
+            const tr = document.createElement("tr");
+            row.forEach(word => {
+                const td = document.createElement("td");
+                td.textContent = word;
+                td.addEventListener("click", function () {
+                    toggleCellColor(td);
+                });
+                tr.appendChild(td);
+            });
+            boardTable.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
