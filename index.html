@@ -48,7 +48,7 @@
             "Drifting to the lab",
             "Laughs from across the office",
             "Fully Borked",
-            "Just Loud",
+            "Trending Topic",
             "Jack Sinclair related",
             "Crab Rave",
             "Bruthuh OkTA",
@@ -90,7 +90,8 @@
 
         const boardTable = document.getElementById("bingo-board");
 
-        bingoBoard[2][2] = 'seabass.png'
+        bingoBoard[2][2] = new Image();
+        bingoBoard[2][2].src = 'seabass.png';
 
         // Function to toggle cell background color
         function toggleCellColor(cell) {
@@ -114,5 +115,9 @@
             boardTable.appendChild(tr);
         });
     </script>
+
+    <h2>Patch Notes</h2>
+
+    <p>11/6/23: Adjusted free space to be the same for each bingo instance</p>
 </body>
 </html>
