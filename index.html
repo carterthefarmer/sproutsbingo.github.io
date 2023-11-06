@@ -3,13 +3,18 @@
 <head>
     <title>Seabass BINGO</title>
     <style>
+	
+		title{
+			font-family: Arial;
+			}
         table {
             border-collapse: collapse;
-            width: 60%;
+            width: 30%;
         }
 
         table, th, td {
             border: 2px solid black;
+			font-family: Arial;
         }
 
         th, td {
@@ -17,6 +22,7 @@
             background-color: ghostwhite;
             padding: 20px;
             text-align: center;
+			font-family: Arial;
             cursor: pointer;
         }
 
@@ -90,11 +96,11 @@
 
         const boardTable = document.getElementById("bingo-board");
 
-        const img = document.createElement("img");
-        img.src = "seabass.png";
-        img.alt = "Just Loud"; 
-
-        bingoBoard[2][2] = img;
+         const imageElement = document.createElement('img');
+		 imageElement.src = 'seabass.png';
+		 
+		
+		bingoBoard[2][2] = "Just Loud";
         
         // Function to toggle cell background color
         function toggleCellColor(cell) {
