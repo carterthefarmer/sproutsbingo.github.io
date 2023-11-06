@@ -90,15 +90,11 @@
 
         const boardTable = document.getElementById("bingo-board");
 
-        const seabass = document.createElement("img");
-        seabass.src = "seabass.png";
-        seabass.alt = "Just Loud"; 
+        const img = document.createElement("img");
+        img.src = "seabass.png";
+        img.alt = "Just Loud"; 
 
-        bingoBoard[2][2] = seabass;
-
-        const cellToUpdate = document.querySelector("#bingo-board tr:nth-child(3) td:nth-child(3)");
-        cellToUpdate.innerHTML = '';
-        cellToUpdate.appendChild(seabass);
+        bingoBoard[2][2] = img;
         
         // Function to toggle cell background color
         function toggleCellColor(cell) {
